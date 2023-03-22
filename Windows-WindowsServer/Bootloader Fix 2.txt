@@ -1,0 +1,16 @@
+How to Disable New Metro Boot Loader and Bring Back Windows Vista and 7 Style Boot Loader in Windows 8
+
+bcdedit /set {default} bootmenupolicy legacy
+
+bcdedit /set {default} bootmenupolicy standard
+
+
+------------------------------------------------------------------------------------
+
+
+    Open the Start menu
+    Type msconfig in the search box and press Enter
+    Go to the Boot tab
+    Uncheck the "No GUI Boot" option
+    Click Apply and reboot to see the changes.
+

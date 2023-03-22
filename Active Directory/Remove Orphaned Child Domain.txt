@@ -1,0 +1,10 @@
+http://myblogs-amit.blogspot.com/2011/12/how-to-remove-child-domain-manually.html
+
+
+https://community.spiceworks.com/how_to/9942-complete-force-removal-of-a-domain-controller-from-active-directory-guide
+
+
+https://davehope.co.uk/Blog/removing-a-child-domain-that-no-longer-exists/
+
+
+https://savilltech.com/2018/01/21/removing-a-non-existent-domain/

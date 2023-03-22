@@ -1,0 +1,4 @@
+Music On Hold Path
+
+./var/lib/asterisk/mohmp3/
+./var/lib/asterisk/moh/

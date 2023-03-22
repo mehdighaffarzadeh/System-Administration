@@ -1,0 +1,4 @@
+wmic baseboard get product,Manufacturer,version,serialnumber
+------------------------------------------------------------------------------------------
+wmic /node:192.168.34.44 baseboard get product,Manufacturer,version,serialnumber
+------------------------------------------------------------------------------------------

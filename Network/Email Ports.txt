@@ -1,0 +1,21 @@
+SMTP Server (Outgoing Messages)
+Non-Encrypted		AUTH		25
+Secure (TLS)		StartTLS	587
+Secure (SSL)		SSL		465
+
+POP3 Server (Incoming Messages)
+Non-Encrypted		AUTH		110
+Secure (SSL)		SSL		995
+
+IMAP
+Non-Encrypted				143
+Secure (SSL/TLS)			993
+------------------------------------------------------------------------
+
+SMTP		25
+SMTPS-TLS	587
+SMTPS-SSL	465
+POP3		110
+POP3S		995
+IMAP		143
+IMAPS		993

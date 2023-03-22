@@ -1,0 +1,42 @@
+sip show peer 436
+-----------------------------------
+database show
+database show AMPUSER
+-----------------------------------
+database show CF
+database get CF 436
+database put CF 436 100
+database del CF 436
+-----------------------------------
+database show CFB
+database get CFB 436
+database put CFB 436 100
+database del CFB 436
+-----------------------------------
+database show CFU
+database get CFU 436
+database put CFU 436 100
+database del CFU 436
+-----------------------------------
+database show CFIM
+-----------------------------------
+database show CFBS
+-----------------------------------
+database show DND
+database get DND 437
+database put DND YES
+database del DND 437
+-----------------------------------
+database show CW
+database get CW 437
+database put CW 437 ENABLED
+database del CW 437
+===================================
+database showkey cidname
+database showkey outboundcid
+database showkey answermode
+database show SIP
+database showkey 436
+
+===================================
+rasterisk -x "database show CW"

@@ -1,0 +1,27 @@
+Display very basic license and activation information:
+slmgr.vbs /dli
+---------------------------------------------------------
+Display more detailed license information
+slmgr.vbs /dlv
+---------------------------------------------------------
+View the License Expiration Date:
+slmgr.vbs /xpr
+---------------------------------------------------------
+Uninstall the Product Key:
+slmgr.vbs /upk
+---------------------------------------------------------
+Removed Product Key from the registry as well:
+slmgr.vbs /cpky
+---------------------------------------------------------
+Set or Change the Product Key:
+slmgr.vbs /ipk #####-#####-#####-#####-#####
+---------------------------------------------------------
+Activate Windows Online: (This will force Windows to attempt online activation with Microsoft’s servers. If the system is set up to use a KMS activation server, it will instead attempt activation with the KMS server on the local network)
+slmgr.vbs /ato
+---------------------------------------------------------
+Activate Windows Offline:
+slmgr.vbs /dti
+---------------------------------------------------------
+Extend the Activation Timer:
+slmgr.vbs /rearm
+---------------------------------------------------------

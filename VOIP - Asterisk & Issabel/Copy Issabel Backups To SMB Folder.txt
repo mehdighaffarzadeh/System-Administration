@@ -1,0 +1,43 @@
+echo "################################################################################ Begin "
+
+echo "INFO: Begin: Call Issabel Standard Backup"
+/usr/bin/php -q /var/www/backup/automatic_backup.php
+echo "INFO: End:   Call Issabel Standard Backup"
+
+# //Parameters
+
+# Days To Keep Backup Files
+DaysToKeepBackupFiles=30
+# Samba Host And Folder To Backup
+SambaHostAndFolderToBackup='\\192.168.0.1\IssabelBackup'
+# Samba Username
+SambaUsername='SMBUser'
+# Samba Password
+SambaPassword='SMBPassword'
+# Samba Domain
+SambaDomain='sample.com'
+
+TempFolder='/tmp/qnap-backup'
+FolderToBackup='/var/www/backup'
+echo "INFO: Begin: Delete old files from issabel"
+find $FolderToBackup -type f -name '*.tar' -mtime +$DaysToKeepBackupFiles -exec rm -v {} \;
+echo "INFO: End:   Delete old files from issabel"
+echo "INFO: Begin: Creating temp folder"
+mkdir $TempFolder
+echo "INFO: End:   Creating temp folder"
+echo "INFO: Begin: Mount to temp folder"
+mount -t cifs -o username="$SambaUsername",password="$SambaPassword",domain="$SambaDomain" "$SambaHostAndFolderToBackup" "$TempFolder"
+echo "INFO: End:   Mount to temp folder"
+sleep 1s
+echo "INFO: Begin: Copy tar backup files"
+cp -n -v $FolderToBackup/*.* $TempFolder
+echo "INFO: End:   Copy tar backup files"
+sleep 1s
+echo "INFO: Begin: Delete old files from Samba"
+find $TempFolder -type f -name '*.tar' -mtime +$DaysToKeepBackupFiles -exec rm -v {} \;
+echo "INFO: End:   Delete old files from Samba"
+sleep 1s
+echo "INFO: Begin: Unmount temp folder"
+umount -l $TempFolder
+echo "INFO: End:   Unmount temp folder"
+echo "################################################################################ End "

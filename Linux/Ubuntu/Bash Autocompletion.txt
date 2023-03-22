@@ -1,0 +1,16 @@
+sudo apt update
+sudo apt install bash-completion
+
+-------------------------------------------------
+
+for root user:
+
+Check your /root/.bashrc file for these lines
+
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+If they do not exist add them to the end of the file using your favorite text editor.
+
+Source: https://serverfault.com/questions/399852/bash-tab-completion-only-works-for-root

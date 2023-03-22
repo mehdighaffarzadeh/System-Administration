@@ -1,0 +1,59 @@
+CSR or certification request
+CSR usually contains the public key for which the certificate should be issued, identifying information (such as a domain name) and integrity protection (e.g., a digital signature)
+The applicant first generates a key pair, keeping the private key secret. The CSR contains information identifying the applicant (such as a distinguished name in the case of an X.509 certificate) which must be signed using the applicant's private key. The CSR also contains the public key chosen by the applicant.
+
+The "req" command primarily creates and processes certificate requests in PKCS#10 format
+
+تولید CSR از کلید بدون رمز
+openssl req -new -key "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.key" -out "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.csr"
+تولید CSR از کلید با رمز
+openssl req -new -key "C:\Users\930868\Desktop\openssl\Encrypted-aes128-PrivateKey.key" -passin pass:abc__123 -out "C:\Users\930868\Desktop\openssl\Encrypted-aes128-PrivateKey.csr"
+
+مشاهده ی فایل CSR
+openssl asn1parse -in "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.csr"
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+متن و اطلاعات درخواستی
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+A challenge password []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+متن و اطلاعات درخواستی
+Country Name – use a 2-letter country code (US for the United States)
+State – the state in which the domain owner is incorporated
+Locality – the city in which the domain owner is incorporated
+Organization name – the legal entity that owns the domain
+Organizational unit name – the name of the department or group in your organization that deals with certificates
+Common name – typically the fully qualified domain name (FQDN), i.e. what the users type in a web browser to navigate to your website
+Email address – the webmaster’s email address
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+متن و اطلاعات درخواستی
+DN[1] 	Information 		Description 													Sample
+CN 	Common Name 		This is fully qualified domain name that you wish to secure 							*.wikipedia.org
+O 	Organization Name 	Usually the legal name of a company or entity and should include any suffixes such as Ltd., Inc., or Corp. 	Wikimedia Foundation, Inc.
+OU 	Organizational Unit 	Internal organization department/division name 									IT
+L 	Locality 		Town, city, village, etc. name 											San Francisco
+ST 	State 			Province, region, county or state. This should not be abbreviated (e.g. West Sussex, Normandy, New Jersey). 	California
+C 	Country 		The two-letter ISO code for the country where your organization is located 					US
+EMAIL 	Email Address 		The organization contact, usually of the certificate administrator or IT department 	

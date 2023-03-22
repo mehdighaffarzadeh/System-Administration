@@ -1,0 +1,13 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+
+string
+AutoAdminLogon
+1
+
+string
+DefaultUserName
+username
+
+string
+DefaultPassword
+password

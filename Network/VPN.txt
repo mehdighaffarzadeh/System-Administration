@@ -1,0 +1,8 @@
+VPN			Protocol				Port				NAT Friendly		Port Change
+-------------------------------------------------------------------------------------------------------------------------------------
+PPTP			GRE(47)					TCP 1723 			No			No
+L2TP/No IPSEC		UDP(17)					1701				Yes			No
+L2TP/With IPSEC		UDP(17),IPSEC/ESP(50),IPSEC/AH(51)	UDP 1701,UDP 500,UDP 4500	Yes			No
+SSTP/No Certificate	TCP					443				Yes			Yes
+SSTP/With Certificate	TCP					443				Yes			Yes
+OVPN/With Certificate	TCP					1194				Yes			Yes

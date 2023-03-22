@@ -1,0 +1,49 @@
+
+1) Generating certificates
+
+/etc/asterisk/keys/
+
+openssl genrsa -out ca.key 2048
+
+openssl req -new -key ca.key -out ca.csr		(Common Name: ComapnyName Or ServerName)
+Prepare extfile ==> ca.ext
+openssl x509 -signkey ca.key -in ca.csr -req -days 3650 -extfile ca.ext -out ca.crt
+cat ca.crt ca.key > ca.pem
+
+openssl genrsa -out asterisk.key 2048
+openssl req -new -key asterisk.key -out asterisk.csr
+Prepare extfile ==> asterisk.ext
+openssl x509 -req -in asterisk.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out asterisk.crt -days 3650 -sha256 -extfile asterisk.ext
+cat asterisk.crt asterisk.key > asterisk.pem
+
+
+
+2) SIP channel configuration
+PBX --> PBX Configuration --> Asterisk SIP Settings
+tlsenable=yes
+tlscertfile=/etc/asterisk/keys/asterisk.pem
+
+asterisk -rx 'sip reload'
+asterisk -rx 'sip show settings'
+
+netstat -anp | grep asterisk
+netstat -tlpn | grep 5061
+netstat -ntulp | grep 5061
+netstat -lanp | grep 506[01]
+
+
+
+3) NAT Setting
+PBX --> PBX Configuration --> Asterisk SIP Settings
+External IP = آی پی پابلیک یا دی ان اس پابلیک
+Local Networks = رنج های آی پی داخلی
+PBX --> PBX Configuration --> تنظیمات هر داخلی که از بیرون دسترسی خواهد داشت
+secret = یک پسوورد خیلی قوی
+nat = yes
+transport = TLS Only
+encryption = yes
+
+4) Fail2Ban
+Security --> Fail2Ban --> Admin --> Enable Fail2Ban
+asterisk:Enabled , Count Failed Attempts:10 , Whitelist:127.0.0.1 192.168.0.0 172.16.0.0
+sshd:Disable , postfix:Disable , apache:Disable , cyrus:Disable

@@ -1,0 +1,22 @@
+https://www.hostinger.com/tutorials/how-to-use-the-dig-command-in-linux/
+
+dig google.com
+
+dig @8.8.8.8 google.com
+
+dig google.com +short
+
+dig google.com +noall +answer
+
+dig google.com ANY
+
+dig google.com MX
+dig google.com txt (Query TXT record)
+dig google.com cname (Query CNAME record)
+dig google.com ns (Query NS record)
+dig google.com A (Query A record)
+
+dig google.com +trace
+
+
+/etc/resolv.conf

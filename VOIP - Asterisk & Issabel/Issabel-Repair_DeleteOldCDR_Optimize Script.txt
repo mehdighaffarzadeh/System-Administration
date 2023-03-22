@@ -1,0 +1,44 @@
+#!/bin/bash
+echo ""
+echo ""
+echo "*************************************************************************************************"
+echo "******************* Begin: Issabel Database Delete OLD CDR, Repair, Optimize ********************"
+echo "*************************************************************************************************"
+
+echo ""
+
+MySqlUser=root
+MySqlPassword=mysqlpass
+DaysToRetainCDR=90
+
+echo ""
+
+echo "******************** Begin: Repair ********************"
+mysqlcheck --user=$MySqlUser --password=$MySqlPassword --verbose --auto-repair --all-databases
+echo "******************** End:   Repair ********************"
+
+echo ""
+echo ""
+
+echo "******************** Begin: Delete OLD CDR ********************"
+mysql  --user=$MySqlUser --password=$MySqlPassword --verbose --verbose asteriskcdrdb --execute="DELETE FROM asteriskcdrdb.cdr WHERE calldate  < DATE_SUB(now(), INTERVAL $DaysToRetainCDR DAY);"
+echo ""
+mysql  --user=$MySqlUser --password=$MySqlPassword --verbose --verbose asteriskcdrdb --execute="DELETE FROM asteriskcdrdb.cel WHERE eventtime < DATE_SUB(now(), INTERVAL $DaysToRetainCDR DAY);"
+echo "******************** End:   Delete OLD CDR ********************"
+
+echo ""
+echo ""
+
+echo "******************** Begin: Optimize ********************"
+mysqlcheck --user=$MySqlUser --password=$MySqlPassword --verbose --optimize --all-databases
+echo "******************** End:   Optimize ********************"
+
+echo ""
+echo ""
+
+echo "*************************************************************************************************"
+echo "******************* End:   Issabel Database Delete OLD CDR, Repair, Optimize ********************"
+echo "*************************************************************************************************"
+
+echo ""
+echo ""

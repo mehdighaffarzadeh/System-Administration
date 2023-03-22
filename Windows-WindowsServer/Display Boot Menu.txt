@@ -1,0 +1,6 @@
+bcdedit /set {bootmgr} displaybootmenu yes
+
+bcdedit /set {bootmgr} displaybootmenu no
+
+
+bcdedit /timeout 7

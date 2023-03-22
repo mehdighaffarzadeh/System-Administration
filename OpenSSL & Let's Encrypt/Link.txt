@@ -1,0 +1,3 @@
+https://www.baeldung.com/openssl-self-signed-cert
+
+https://www.ssltools.eu/

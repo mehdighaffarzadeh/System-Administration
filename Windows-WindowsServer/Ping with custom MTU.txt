@@ -1,0 +1,12 @@
+ping 192.168.0.5 -f -l 1473 -n 2
+
+-f		: Do not Fragment
+-l <size>	: Specifies the length, in bytes, of the Data field in the echo Request messages. The default is 32. The maximum size is 65,527.
+-I <TTL>	: Specifies the value of the Time To Live (TTL) field in the IP header for echo Request messages sent. The default is the default TTL value for the host. The maximum TTL is 255.
+-n <count>	: Specifies the number of echo Request messages be sent. The default is 4.
+
+Packet needs to be fragmented
+
+------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,26 @@
+login: 
+mysql --user=root --password=1234567890 --verbose
+mysql -u root -p
+------------------------------------------------------
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES; 
+------------------------------------------------------
+List Databases & Tables:
+show databases;
+show schemas;
+use database_name;
+show tables;
+show full tables;
+SHOW TABLES FROM database_name;
+------------------------------------------------------
+Issabel Databases: 
+asterisk
+asteriskcdrdb
+endpointconfig
+meetme
+roundcubedb
+test
+------------------------------------------------------
+
+
+

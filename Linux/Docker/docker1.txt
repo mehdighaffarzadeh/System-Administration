@@ -1,0 +1,106 @@
+لاگین به ترمینال اوبونتو با روت
+sudo -s
+sudo -i
+whoami
+logout
+exit
+------------------------------------------------
+اجرای ناتیلوس با دسترسی روت
+sudo -i
+<enter password>
+nautilus
+------------------------------------------------
+مشاهده آی پی در لینوکس
+ip addr
+sudo apt install net-tools
+ifconfig
+ip a
+------------------------------------------------
+نصب به ترتیب
+docker-ce-cli
+containerd.io
+docker-ce
+------------------------------------------------
+اعطای دسترسی به کاربر برای اجرای دستورات داکر
+sudo usermod -a -G docker $USER
+reboot
+------------------------------------------------
+تست داکر
+docker run hello-world:latest
+docker run hello-world
+------------------------------------------------
+دانلود ایمیج های داکر
+docker pull
+------------------------------------------------
+لیست ایمیجهای دانلود شده
+docker images
+------------------------------------------------
+محل فایلهای داکر
+/var/lib/docker
+/var/lib/containerd
+------------------------------------------------
+سرویسهای داکر
+docker.service
+containerd.service
+
+sudo systemctl start docker		(Start docker,docker.service,containerd.service,docker.socket)
+sudo systemctl start docker.service
+sudo systemctl start containerd.service
+sudo systemctl start docker.socket
+
+sudo systemctl stop docker		(Stop only docker,docker.service)
+
+sudo systemctl restart docker
+sudo systemctl restart docker.service
+sudo systemctl restart containerd.service
+sudo systemctl restart docker.socket
+
+sudo systemctl enable docker
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl enable docker.socket
+
+sudo systemctl disable docker
+sudo systemctl disable docker.service
+sudo systemctl disable containerd.service
+sudo systemctl disable docker.socket
+------------------------------------------------
+دانلود ایمیج
+docker pull nginx
+------------------------------------------------
+اجرای ایمیج در یک کانتینر و پارامترهای مهم
+docker run -it --rm -d -p 8080:80 --name web nginx
+-it (-i -t)(For interactive tty processes)
+--rm (Automatically remove the container when it exits)
+-d (daemon)
+-p 8080:80 (Port)
+--name (Container Name)
+--restart (auto start and restarted policy)
+------------------------------------------------
+توقف اجرای کانتینر
+docker stop web
+------------------------------------------------
+کانتینرهای در حال اجرا
+docker ps
+کانتینرهای در حال اجرا + کانتینرهای متوقف شده
+docker ps -a
+لیست شبکه ها
+docker network ls
+docker network inspect bridge
+------------------------------------------------
+مشاهده آی پی کانتینر
+docker inspect CONTAINER_ID | grep -i "IPAddress"
+------------------------------------------------
+پاکسازی سراسری
+docker prune
+------------------------------------------------
+Docker GUIs:
+DockStation (Require Docker Compose)
+Kitematic
+------------------------------------------------
+اجرای دستور داخل کانتینر
+docker exec <options> <container> <command>
+docker exec -it 5f1d38a99c0c ls
+docker exec -it 5f1d38a99c0c echo "I'm inside the container!"
+docker exec -it <container> /bin/bash
+------------------------------------------------

@@ -1,0 +1,23 @@
+http://woshub.com/how-to-set-timezone-from-command-prompt-in-windows/
+---------------------------------------
+reg query HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
+w32tm /tz
+Get-TimeZone
+Get-TimeZone -ListAvailable
+---------------------------------------
+
+Iran Standard Time
+
+tzutil /g	: display the current time zone ID
+tzutil /l	: Lists all valid time zone IDs and display names
+
+
+tzutil /s "Iran Standard Time_dstoff"
+tzutil /s "Iran Standard Time"
+
+timedate.cpl
+---------------------------------------
+NVR
+SNMP Agent
+NonDomainJoind PCs and Servers
+QNAP

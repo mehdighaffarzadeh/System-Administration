@@ -1,0 +1,72 @@
+VLAN Create: 
+
+configure terminal
+vlan 250
+name VOIP
+exit
+exit
+show vlan
+------------------------------------------
+VLAN Delete: 
+
+configure terminal
+no vlan 250
+------------------------------------------
+Port VLAN:
+
+config terminal
+interface gigabitEthernet 1/0/46
+switchport mode access
+switchport access vlan 250
+end
+show interfaces status
+copy running-config startup-config
+
+------------------------------------------
+Trunk:
+
+config terminal
+interface gigabitEthernet 1/0/52
+switchport mode trunk
+switchport trunk allowed vlan 1,100,200
+exit
+exit
+show interfaces status
+Show interface trunk
+copy running-config startup-config
+
+-----------------------------------------
+Voice VLAN:
+
+config terminal
+interface gigabitEthernet 3/0/1
+interface range gigabitEthernet 1/0/1-23
+switchport voice vlan 200
+no shutdown
+end
+show vlan
+show interfaces status
+copy running-config startup-config
+----
+no switchport voice vlan
+
+-----------------------------------------
+
+
+no switchport voice vlan
+Show vlan brief
+show run interface vlan 50
+show run interface gigabitEthernet 3/0/1
+
+
+
+
+
+
+
+
+
+
+
+
+

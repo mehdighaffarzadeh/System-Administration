@@ -1,0 +1,26 @@
+Office 2010 : Office 14 
+Office 2013
+Office 2016
+Office 2019 : Office 16
+---------------------------------------------------------
+cd "C:\Program Files\Microsoft Office\Office14"
+cscript ospp.vbs /sethst:192.168.0.91
+cscript ospp.vbs /act
+---------------------------------------------------------
+cd "C:\Program Files\Microsoft Office\Office16"
+cscript ospp.vbs /sethst:192.168.0.91
+cscript ospp.vbs /act
+
+cscript ospp.vbs /inpkey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+---------------------------------------------------------
+راهنمای دستورات فعال ساز آفیس
+C:\Program Files\Microsoft Office\Office14\OSPP.HTM
+---------------------------------------------------------
+To extend on the rearm solution for those with both Office 2010 and Office 2013 products without the aid of MDT.  Rearming both Office 2010 and Office 2013 on the same image may require two command lines.
+64bit OS:
+"%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.EXE"
+"%ProgramFiles(x86)%\Common Files\microsoft shared\OfficeSoftwareProtectionPlatform\OSPPREARM.EXE"
+32Bit OS:
+"%ProgramFiles%\Microsoft Office\Office15\OSPPREARM.EXE"
+"%ProgramFiles%\Common Files\microsoft shared\OfficeSoftwareProtectionPlatform\OSPPREARM.EXE"
+

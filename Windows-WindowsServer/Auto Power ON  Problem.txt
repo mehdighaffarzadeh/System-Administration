@@ -1,0 +1,18 @@
+How to See Wake Source in Windows 10
+powercfg -lastwake
+
+powercfg -devicequery wake_from_any
+
+
+To See Devices that are Currently Configured to Wake Computer from any Sleep State:
+powercfg -devicequery wake_armed
+
+
+Powercfg -deviceenablewake "devicename" command.
+Powercfg -devicedisablewake "devicename"
+
+for /F "tokens=*" %A in ('powercfg -devicequery wake_armed') do powercfg -devicedisablewake "%A"
+
+https://tipsmake.com/fix-computer-error-that-automatically-turns-on-when-there-is-no-user
+
+https://www.tenforums.com/performance-maintenance/17806-pc-sleep-issues.html

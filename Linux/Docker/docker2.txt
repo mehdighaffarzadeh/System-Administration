@@ -1,0 +1,47 @@
+Unix Socket	: Unix Domain Sockets (UDS) (-H unix:///var/run/docker.sock)
+TCP Socket	: TCP Socket (-H tcp://0.0.0.0:2375 , 2376(encryptet))
+FD		: -H fd://
+===============================================
+dockerd		: Docker Daemon (usr/bin)(is a daemon(service))
+docker		: Docker Client (usr/bin)(not a daemon(service))
+
+Example
+sudo dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+docker -H tcp://127.0.0.1:2375 pull ubuntu
+
+===============================================
+Allow tcp socket on daemon:
+
+Inside file /etc/init.d/docker.service change:
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+with
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375
+or
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://127.0.0.1:2375
+
+Reload the systemctl configuration.
+sudo systemctl daemon-reload
+
+Restart Docker
+sudo systemctl restart docker.service
+
+Check
+sudo netstat -lntp | grep dockerd
+ps -ef | grep docker
+sudo docker -H tcp://127.0.0.1:2375 ps
+sudo docker -H tcp://192.168.76.130:2375 ps
+curl -X GET http://localhost:2375/images/json
+curl -X GET http://192.168.76.130:2375/images/json
+===============================================
+REST API
+----------
+Unix socket
+
+Server Side
+tcp://[host]:[port][path]
+unix://path
+sudo dockerd -H unix:///var/run/docker.sock -H tcp://192.168.59.106
+
+Client Side
+docker -H tcp://0.0.0.0:2375 ps
+-----------

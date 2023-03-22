@@ -1,0 +1,5 @@
+Create
+Subst x: c:\users
+
+Remove
+Subst x: /d

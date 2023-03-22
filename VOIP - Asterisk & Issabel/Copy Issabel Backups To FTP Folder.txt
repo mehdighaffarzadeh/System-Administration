@@ -1,0 +1,35 @@
+echo "################################################################################ Begin "
+/usr/bin/php -q /var/www/backup/automatic_backup.php
+# //Parameters
+
+# Folder to backup. Ending with '/'. Sample: '/var/www/backup/'
+FolderToBackup='/var/www/backup/'
+
+# FTP backup IP Address
+HOST='192.168.0.1'
+
+# FTP Username
+USER='FTPUser'
+
+# FTP Password
+PASSWD='FTPPassword'
+
+# FTP SubFolder. Write with '/' if not empty. Else leave it blank. Sample: 'Backup/' OR ''
+FTPSUBFOLDER='Backup/'
+
+# //Parameters
+
+# //Delete Older Files (+30)
+
+find $FolderToBackup -type f -name '*.tar' -mtime +30 -exec rm {} \;
+
+# //Delete Older Files
+
+for FILE in $FolderToBackup*; do
+	#echo "$FILE"
+	if [[ -f $FILE ]]; then
+		#echo "$(basename "$FILE")"
+		curl -s -T "$FILE" -u $USER:$PASSWD "ftp://$HOST/$FTPSUBFOLDER"  -v # -v : VERBOSE / -s : Silent Mode
+	fi
+done
+echo "################################################################################ End"

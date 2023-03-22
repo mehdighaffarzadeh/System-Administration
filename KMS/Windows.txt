@@ -1,0 +1,4 @@
+slmgr.vbs /skms <server>:<port>
+slmgr.vbs /ato
+
+slmgr.vbs /rearm

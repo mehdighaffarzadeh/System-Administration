@@ -1,0 +1,23 @@
+repadmin /replicate <Dest_DSA_List> <Source_DSA_Name>
+repadmin /replicate AD2 AD1 DC=TestDomain,DC=COM
+repadmin /replicate AD1 AD2 DC=TestDomain,DC=COM
+repadmin /replicate AD2.TestDomain.COM AD1.TestDomain.COM DC=ChildDomain1,DC=TestDomain,DC=COM
+repadmin /replicate AD1.TestDomain.COM ChildDomain1AD1.ChildDomain1.TestDomain DC=ChildDomain1,DC=TestDomain,DC=COM
+--------------------------------------------------------------------------
+repadmin /showrepl
+repadmin /showrepl *
+repadmin /showrepl * /csv > c:\replication.csv
+repadmin /showrepl AD1.TestDomain.COM /Errorsonly
+repadmin /showrepl ChildDomain1AD1.ChildDomain1.TestDomain.COM /Errorsonly
+--------------------------------------------------------------------------
+repadmin /syncall /force /aped
+--------------------------------------------------------------------------
+repadmin /replsummary
+repadmin /replsum /errorsonly
+repadmin /replsummary /bysrc /bydest /sort:delta
+--------------------------------------------------------------------------
+repadmin /queue
+--------------------------------------------------------------------------
+repadmin /kcc
+--------------------------------------------------------------------------
+repadmin /showattr

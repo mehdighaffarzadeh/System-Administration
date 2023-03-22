@@ -1,0 +1,10 @@
+https://support.sophos.com/support/s/article/KB-000035917?language=en_US
+system system_modules show
+system system_modules sip unload
+system system_modules sip load
+---------------------------------------------------------------------------
+https://support.sophos.com/support/s/article/KB-000037055?language=en_US
+show advanced-firewall
+Defuat Value : UDP Timeout Stream : 60 
+set advanced-firewall udp-timeout-stream 150
+set ips sip_preproc disable

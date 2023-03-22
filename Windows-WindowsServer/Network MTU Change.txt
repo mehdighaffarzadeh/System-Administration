@@ -1,0 +1,9 @@
+View MTU:
+netsh interface ipv4 show subinterface
+
+Change MTU:
+netsh interface ipv4 set subinterface “Ethernet” mtu=1200 store=persistent
+netsh interface ipv4 set subinterface “OnBoard LAN” mtu=1200 store=persistent
+
+
+

@@ -1,0 +1,12 @@
+For 32-bit (x86) Office
+cd c:\Program Files (x86)\Microsoft Office\Office16\
+
+For 64-bit (x64) Office
+cd c:\Program Files\Microsoft Office\Office16\
+
+
+cscript OSPP.VBS /dstatus
+
+-----------------------------------------------------------------
+LICENSE DESCRIPTION: Office 19, VOLUME_KMSCLIENT channel
+-----------------------------------------------------------------

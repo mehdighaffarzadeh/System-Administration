@@ -1,0 +1,21 @@
+The x509 command is a multi purpose certificate utility. It can be used to display certificate information, convert certificates to various forms, sign certificate requests like a "mini CA" or edit certificate trust settings.
+
+تولید
+openssl x509 -signkey "PrivateKeyFile.key" -in "CSRFile.csr" -req -days 365 -out "CertificateFile.crt"
+
+برای دستگاههای آندروید گزینه فایل -extfile اجباری است
+openssl x509 -signkey "PrivateKeyFile.key" -in "CSRFile.csr" -req -days 365 -extfile android_options.txt -out "CertificateFile.crt"
+https://www.exceptionlife.com/android/question/1631/how-to-get-android-11-to-trust-a-user-root-ca-without-a-private-key
+
+
+Example:
+openssl x509 -signkey "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.key" -in "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.csr" -req -days 365 -out "C:\Users\930868\Desktop\openssl\CertificateFile.crt"
+
+
+مشاهده
+openssl x509 -text -noout -in "C:\Users\930868\Desktop\openssl\CertificateFile.crt"
+openssl x509 -inform der -in cacert.crt -text
+openssl x509 -inform pem -in cacert.crt -text
+
+تست ارتباط با TLS
+openssl s_client -connect 192.168.1.26:5061 -tls

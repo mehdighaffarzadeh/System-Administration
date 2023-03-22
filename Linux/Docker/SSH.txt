@@ -1,0 +1,31 @@
+Ubuntu:
+https://ubuntu.com/server/docs/service-openssh
+
+Install Client:
+sudo apt install openssh-client
+
+Install Server:
+sudo apt update
+sudo apt install openssh-server
+
+Check:
+sudo systemctl status ssh
+
+Allow on firewall:
+sudo ufw allow ssh
+
+Stop Service:
+sudo systemctl stop ssh
+
+Start Service:
+sudo systemctl start ssh
+
+Disable SSH service
+sudo systemctl disable ssh
+
+Enable SSH service
+sudo systemctl enable ssh
+
+
+Configuration:
+/etc/ssh/sshd_config

@@ -1,0 +1,14 @@
+
+w32tm /resync /rediscover
+w32tm /resync /nowait
+w32tm /query /status
+W32tm /query /status /verbose
+w32tm /query /configuration
+w32tm /query /peers
+w32tm /query /source
+w32tm /monitor
+
+w32tm /dumpreg
+
+w32tm /stripchart /computer:192.168.222.150
+w32tm /stripchart /computer:192.168.222.150 /dataonly /samples:5

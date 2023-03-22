@@ -1,0 +1,21 @@
+http://www.itingredients.com/repadmin-active-directory-replication-tools/
+Repadmin /showrepl
+Repadmin /replsummary
+repadmin /kcc
+Repadmin /Queue
+Repadmin /Showrepl
+Repadmin /syncall
+Repadmin /KCC
+Repadmin /replicate
+repadmin /notifyopt
+Repadmin /showobjmeta
+
+
+repadmin /showrepl DSA_LIST
+repadmin /showrepl DSA_LIST /repto
+
+repadmin /kcc
+
+
+DCDIAG /V /C /D /E /s:TABRIZDC > c:\dcdiag.log
+repadmin.exe /showrepl dc* /verbose /all /intersite > c:\repl.txt

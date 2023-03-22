@@ -1,0 +1,6 @@
+How to Determine if Windows License Type is OEM, Retail, or Volume
+
+slmgr -dli
+
+
+Source: https://www.tenforums.com/tutorials/49586-determine-if-windows-license-type-oem-retail-volume.html

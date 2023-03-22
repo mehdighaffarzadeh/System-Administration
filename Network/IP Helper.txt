@@ -1,0 +1,20 @@
+By default ip helper-address will forward broadcasts for these protocols:
+UDP 69 (TFTP)
+UDP 53 (DNS)
+UDP 37 (time service)
+UDP 137 (NetBIOS Name Server)
+UDP 138 (NetBIOS Datagram Server)
+UDP 67 and 68 (BOOTP client and server/DHCP)
+UDP 49 (TACACS)
+UDP 116 (Name Service).
+Additional protocols can be enabled for forwarding using the command ip forward-protocol.
+
+
+for DHCP ip helper-address will take the DHCP request from the client and forward it (unchanged) to the DHCP server.
+DHCP relay the router receives the DHCP request from the client and builds a new request to send to the server (which gives the router an opportunity to add information in the request about the router).
+
+
+-----------------------------------------------------------------
+no ip forward-protocol udp <port number>
+
+Router2(config)#no ip forward-protocol udp 37

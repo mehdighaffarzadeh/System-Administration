@@ -1,0 +1,10 @@
+echo "INFO: Begin: Delete Recording Files"
+# Delete Recording Files Older Than -mtime +X Days
+find /var/spool/asterisk/monitor -name "*.wav" -mtime +7 -delete -print
+echo "INFO: End:   Delete Recording Files"
+#
+#
+echo "INFO: Begin: Delete Empty Folders"
+# Delete Empty Folders
+find /var/spool/asterisk/monitor/ -type d -empty -delete -print
+echo "INFO: End:   Delete Empty Folders"

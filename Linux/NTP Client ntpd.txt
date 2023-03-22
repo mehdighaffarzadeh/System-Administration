@@ -1,0 +1,16 @@
+NTP Config File:
+/etc/ntp.conf 
+----------------------------------------------------------------------
+Run the below command to start NTP (Network Time Protocol).
+/etc/init.d/ntpd start
+----------------------------------------------------------------------
+Update chkconfig to have ntpd start when the server restarts:
+chkconfig ntpd on
+----------------------------------------------------------------------
+
+TimeZone Data:
+/etc/sysconfig/clock
+
+
+
+ntpq -p

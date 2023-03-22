@@ -1,0 +1,44 @@
+
+Convert PEM to DER
+openssl x509 -in domain.crt -outform der -out domain.der
+
+Example:
+openssl x509 -in "C:\Users\930868\Desktop\openssl\CertificateFile.crt" -outform der -out "C:\Users\930868\Desktop\openssl\CertificateFile.DER"
+
+
+openssl x509 -inform PEM -outform DER -in ca_cert.crt -out ca_cert_der.crt
+openssl x509 -in ca_cert.crt -text -inform der
+openssl x509 -in ca_cert.crt -text -inform pem
+
+--------------------------------------------------------------------------------------------------
+
+Convert PEM to PKCS12
+openssl.exe pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+
+Example:
+openssl.exe pkcs12 -inkey "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.key" -in "C:\Users\930868\Desktop\openssl\CertificateFile.crt" -export -out "C:\Users\930868\Desktop\openssl\CertificateFile.pfx"
+openssl.exe pkcs12 -inkey "C:\Users\930868\Desktop\openssl\UnEncrypted-PrivateKey.key" -in "C:\Users\930868\Desktop\openssl\CertificateFile.crt" -export -out "C:\Users\930868\Desktop\openssl\CertificateFile.pfx" -password pass:123456789
+
+
+View:
+openssl.exe pkcs12 -info -in "C:\Users\930868\Desktop\openssl\CertificateFile.pfx"
+openssl.exe pkcs12 -info -in "C:\Users\930868\Desktop\openssl\CertificateFile.pfx" -nokeys
+openssl.exe pkcs12 -info -in "C:\Users\930868\Desktop\openssl\CertificateFile.pfx" -password pass:123456789 -nokeys
+
+
+--------------------------------------------------------------------------------------------------
+
+
+Certificate Type 		Certificate Format
+CA Authority Certificate 	DER
+Personal Certificate from CA 	PKCS12
+Grid Access Certificate 	PEM
+
+
+
+
+
+
+
+
+

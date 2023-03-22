@@ -1,0 +1,23 @@
+در مسیر 
+/etc/logrotate.d/
+فایل 
+asterisk 
+را باز کرده و خط
+su asterisk asterisk
+را در یک خط جدید به داخل { } اضافه میکنیم.
+
+
+
+
+مثال:
+/var/log/asterisk/messages
+/var/log/asterisk/full {
+   missingok
+   rotate 5
+   daily
+   su asterisk asterisk
+   create 0640 asterisk asterisk
+   postrotate
+       /usr/sbin/asterisk -rx 'logger reload' > /dev/null 2> /dev/null
+   endscript
+}

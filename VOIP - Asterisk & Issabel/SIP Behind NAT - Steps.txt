@@ -1,0 +1,9 @@
+- غیر فعال کردن AIP ALG روی میکروتیک و سوفوس
+	1. در میکروتیک: IP -> Firewall -> Service Ports -> SIP را غیر فعال میکنیم.
+	2. در سوفوس: Consule -> sytem system-modules show و Consule -> sytem system-modules sip unload
+
+- فوروارد کردن پورت SIP مورد نظر به پورت 5060 (UDP) به سرور داخلی
+
+- فوروارد کردن پورت RTP) UDP) به پورت 10000 تا 20000 به سرور داخلی
+
+- تنظیم IP و پورت پابلیک و IP های شبکه های داخلی در Asterisk SIP Setting

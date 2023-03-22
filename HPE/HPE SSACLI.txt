@@ -1,0 +1,5 @@
+https://gist.github.com/mrpeardotnet/a9ce41da99936c0175600f484fa20d03
+https://itsimple.info/?p=1732
+------------------------------------------------------------------------
+cd /opt/smartstorageadmin/ssacli/bin/
+

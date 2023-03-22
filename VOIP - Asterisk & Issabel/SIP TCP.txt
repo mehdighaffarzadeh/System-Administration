@@ -1,0 +1,27 @@
+Method 1:
+Issabel --> PBX Configuration --> Asterisk SIP Setting --> Other SIP Settings --> 
+tcpenable = yes
+------------------------------------------------------------------------------------
+Method 2: 
+Issabel --> PBX --> Tools --> Asterisk File Editor --> sip_custom.conf
+
+tcpenable=yes
+
+Save
+--> Reload Asterisk
+------------------------------------------------------------------------------------
+netstat -anp | grep asterisk
+netstat -tlpn | grep 5060
+
+netstat -ntulp | grep portnumber
+
+
+=========================================================================
+tcpbindaddr=0.0.0.0:5060
+
+udpbindaddr=0.0.0.0:XXXX
+bindport = 5080
+
+
+sudo /etc/init.d/asterisk restart
+

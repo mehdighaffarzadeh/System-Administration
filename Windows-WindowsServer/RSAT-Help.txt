@@ -1,0 +1,22 @@
+https://www.imab.dk/deploy-rsat-remote-server-administration-tools-for-windows-10-v1909-using-sccm-system-center-configuration-manager-and-powershell/
+
+------------------------------------------------------------------------------------------------------------------------
+
+    -All (-All is installing ALL the features within the RSAT bundle)
+    -Basic (-Basic is only installing AD DS, DHCP, DNS, Group Policy Management and Server Manager)
+    -ServerManager (-ServerManager is only installing the Server Manager)
+    -Uninstall (-Uninstall removes all RSAT features again)
+
+------------------------------------------------------------------------------------------------------------------------
+Install in powershel: 
+Get-ExecutionPolicy
+Set-ExecutionPolicy unrestricted
+./Install-RSATv1809v1903v1909.ps1 -All
+Set-ExecutionPolicy restricted
+------------------------------------------------------------------------------------------------------------------------
+
+The installation program:
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -WindowStyle Hidden -File .\Install-RSATv1809v1903v1909.ps1 -All
+
+The uninstall program:
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -WindowStyle Hidden -File .\Install-RSATv1809v1903v1909.ps1 -Uninstall

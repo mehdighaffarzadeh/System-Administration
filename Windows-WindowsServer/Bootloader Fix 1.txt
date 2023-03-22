@@ -1,0 +1,93 @@
+
+
+	
+
+windowsrepairSo you’ve managed to hose the bootloader on your computer? No worries, every Geek has.
+
+This article will show you how to:
+
+- Fix the Windows Vista bootloader
+
+- Fix the Windows 7 bootloader
+
+- Fix the Windows 8 bootloader
+
+***warning – Messing with this stuff is potentially dangerous to your PC. I am not responsible for what you do.
+
+Option 1 – Standard Bootloader Repair
+
+1 – Boot from the Windows install or repair CD appropriate to you version of Windows.
+
+For Windows 8:
+1 – Boot from repair disc > Choose Keyboard type > click Troubleshoot > click Advanced options > choose Automatic Repair
+if that fails then use:
+2 -Boot from Recovery disc or Install disc
+
+-Boot from repair disc > Chose Keyboard type > click Troubleshoot > click Advanced options > choose Command Prompt
+
+or
+
+-Boot from Install disc > Click Next > click Repair your computer > click Troubleshoot > click Advanced options > choose Command Prompt
+
+type > bootrec /fixmbr (writes mbr but does not overwrite partition table)
+type > bootrec /fixboot (writes new boot sector to system partition)
+type > bootrec /scanos (scans for other OS’s that you might want to add to bcd)
+(personally I find the above unneeded and only use the last step)
+type > bootrec /rebuildbcd (scans for other OS’s, unlike rebuildbcd it allows you to select the OS’s you want to add to bcd)
+Reboot
+For Windows 7 and Windows Vista
+Boot from the repair disk > Choose keyboard and click Next > Use recovery tools… and click Next > Windows may find problems fix them and reboot, if it works great. If it didn’t work or it didn’t find problems continue on > choose Command Prompt
+
+or
+Boot from the Install disk > Choose keyboard and click Next > Use recovery tools… and click Next > choose Command Prompt
+type > bootrec /fixmbr (writes mbr but does not overwrite partition table)
+type > bootrec /fixboot (writes new boot sector to system partition)
+type > bootrec /scanos (scans for other OS’s that you might want to add to bcd)
+(personally I find the above unneeded and use the last step)
+type > bootrec /rebuildbcd (scans for other OS’s, unlike rebuildbcd it allows you to select the OS’s you want to add to bcd)
+
+Reboot
+For more info see: Use the Bootrec.exe tool in the Windows Recovery Environment to troubleshoot and repair startup issues in Windows
+
+ 
+
+Option 2 – The Nuclear Option
+This option is basically going to give you a new MBR and bootloader. I’ve used this quite a bit. Most recently I used it after removing Windows 7 from a dual boot and moving the Windows 8 partition up (via True Image). Anyway boot as above and use these commands:
+bootsect /nt60 c: /force /mbr
+bcdboot c:\windows /s c:
+
+ 
+
+What these commands do:
+
+Writes a new mbr to c:
+bootsect /nt60 c: /force /mbr
+( command, /nt60 = use boot code that is compatible with BOOTMGR, / = force dismount, / = write mbr )
+( bootsect does to touch mbr, it works on the selected drives…ahem….wait for it…bootsector)
+
+Write a new bootloader to the C: drive
+bcdboot c:\windows /s c:
+( command, look in c:windows for files, copy files to c: (actually c:\windows\boot) )
+
+ 
+
+For more info see:
+
+Bootsect Command-Line Options
+BCDboot Command-Line Options
+
+ 
+
+EasyBCD
+
+For dual-booting and other boot related projects I use EasyBCD.
+
+I highly recommend you check out this FREE program.
+
+Dual-booting as well as bcd backup and repair are just some of the things you can do.
+
+In addition the site is a wealth of information (check out the blog as well as the forums).
+
+ 
+
+-END-

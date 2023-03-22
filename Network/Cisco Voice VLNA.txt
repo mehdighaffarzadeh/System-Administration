@@ -1,0 +1,28 @@
+show run interface vlan XXX
+
+show interfaces trunk
+
+debug ip dhcp server packet
+
+show ip helper-address
+
+show ip interface vlan 50
+------------------------------------------------------------------------
+RTA(config-if)#interface vlan 100
+RTA(config-if)#ip helper-address 192.168.1.1
+------------------------------------------------------------------------
+no ip forward-protocol udp <port number>
+
+Router2>enable
+Password:
+Router2#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router2(config)#no ip forward-protocol udp 37
+Router2(config)#no ip forward-protocol udp 49
+Router2(config)#no ip forward-protocol udp 53
+Router2(config)#no ip forward-protocol udp 67
+Router2(config)#no ip forward-protocol udp 68
+Router2(config)#no ip forward-protocol udp 137
+Router2(config)#no ip forward-protocol udp 138
+Router2(config)#exit
+------------------------------------------------------------------------

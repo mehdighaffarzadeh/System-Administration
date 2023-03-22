@@ -1,0 +1,11 @@
+schtasks.exe
+
+SCHTASKS /Delete [/S <system> [/U <username> [/P [<password>]]]] /TN <taskname> [/F] 
+
+for /f %%x in ('schtasks /query ^| findstr At') do schtasks /Delete /TN %%x /F
+for /f %x in ('schtasks /query ^| findstr At') do schtasks /Delete /TN %x /F
+--------------------------------------------------------------------------------------------------------
+
+schtasks /query | findstr /i "^At[0-9]"
+
+for /f %x in ('schtasks /query ^| findstr /i "^At[0-9]"') do schtasks /Delete /TN %x /F

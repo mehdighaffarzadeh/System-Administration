@@ -1,0 +1,4 @@
+iptables-save > savedrules.txt
+
+
+iptables-restore < savedrules.txt 

@@ -1,0 +1,23 @@
+show clock
+
+
+---------------------------------------------------
+Setting the System Clock:
+clock set hh:mm:ss day month year 
+OR
+clock set hh:mm:ss month day year 
+Sample:
+clock set 23:04:00 21 Sep 2018
+---------------------------------------------------
+Configuring the Time Zone: 
+
+en
+configure terminal
+clock timezone zone hours-offset [minutes-offset] 
+end
+show running-config
+copy running-config startup-config
+Sample:
+clock timezone +430 +4 30
+clock timezone +330 +3 30
+---------------------------------------------------

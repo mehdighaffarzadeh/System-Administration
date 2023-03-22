@@ -1,0 +1,5 @@
+-----------------------------------------------------
+slmgr.vbs /skms <server>:<port>
+slmgr.vbs /ato
+(If required) To manually assign a KMS host address to a KMS client for Windows 7, run the following command: cscript c:\Windows\System32\slmgr.vbs /skms <server>:<port>
+-----------------------------------------------------

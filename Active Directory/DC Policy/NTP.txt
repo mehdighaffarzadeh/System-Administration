@@ -1,0 +1,1 @@
+Computer Configuration --> Administrative Templates --> System --> Windows Time Service

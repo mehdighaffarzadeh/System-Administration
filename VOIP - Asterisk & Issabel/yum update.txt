@@ -1,0 +1,13 @@
+yum update issabel*
+
+
+yum update asterisk*    
+
+
+
+yum repolist
+/etc/yum.repos.d
+yum clean all
+yum list all
+yum search AppName
+yum search htop

@@ -1,0 +1,3 @@
+Change the value of
+\HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Reliability
+.\DirtyShutdown to 0

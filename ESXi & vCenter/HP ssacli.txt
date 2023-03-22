@@ -1,0 +1,30 @@
+https://blog.ndk.name/manage-hpe-smart-array-in-vmware-esxi/
+http://www.virtubytes.com/2017/04/24/patch-hp-drivers-esxi-vum/
+
+
+https://blog.ndk.name/manage-hpe-smart-array-in-vmware-esxi/
+
+https://be-virtual.net/hpe-storage-controller-management-ssacli/
+
+
+------------------------
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 show config
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 show detail
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 show config detail
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 show status
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl all show config
+
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 pd all show status
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 pd all show detail
+
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 ld all show status
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 ld all show detail
+
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl all show config
+
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 show config
+
+
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 modify dwc=?
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 modify dwc=enable forced
+./opt/smartstorageadmin/ssacli/bin/ssacli ctrl slot=1 modify dwc=disable forced

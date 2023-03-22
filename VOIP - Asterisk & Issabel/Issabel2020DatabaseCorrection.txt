@@ -1,0 +1,75 @@
+#!/bin/bash
+
+echo "*************************************************************************************************"
+echo "********************** Starting InnoDB Database Correction for Issabel 2020 *********************"
+echo "*************************************************************************************************"
+
+MySqlUser=root
+MySqlPassword=mysqlpass
+
+
+echo "************************** Begin: Backing up databases... **************************"
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose asterisk > /tmp/asterisk.sql
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose asteriskcdrdb > /tmp/asteriskcdrdb.sql
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose endpointconfig > /tmp/endpointconfig.sql
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose meetme > /tmp/meetme.sql
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose roundcubedb > /tmp/roundcubedb.sql
+mysqldump --single-transaction --user=$MySqlUser --password=$MySqlPassword --verbose test > /tmp/test.sql
+echo "************************** End:   Backing up databases... **************************"
+
+
+echo "************************** Begin: Droping databases... **************************"
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose << 'EndofDropDatabases'
+drop database asterisk;
+drop database asteriskcdrdb;
+drop database endpointconfig;
+drop database meetme;
+drop database roundcubedb;
+drop database test;
+quit;
+EndofDropDatabases
+echo "************************** End:   Droping databases... **************************"
+
+
+echo "************************** Begin: Stoping MariaDB Service... **************************"
+systemctl stop mariadb.service
+echo "************************** End:   Stoping MariaDB Service... **************************"
+
+
+echo "************************** Begin: Removing ib files... **************************"
+rm -f --verbose /var/lib/mysql/ibdata*
+rm -f --verbose /var/lib/mysql/ib_logfile*
+echo "************************** End:   Removing ib files... **************************"
+
+
+echo "************************** Begin: Starting MariaDB Service... **************************"
+systemctl start mariadb.service
+echo "************************** End:   Starting MariaDB Service... **************************"
+
+
+echo "************************** Begin: Creating databases... **************************"
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose << 'EndOfCreatingDatabases'
+CREATE DATABASE asterisk;
+CREATE DATABASE asteriskcdrdb;
+CREATE DATABASE endpointconfig;
+CREATE DATABASE meetme;
+CREATE DATABASE roundcubedb;
+CREATE DATABASE test;
+Exit;
+EndOfCreatingDatabases
+echo "************************** End:   Creating databases... **************************"
+
+
+echo "************************** Begin: Restoring Backup... **************************"
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose asterisk < /tmp/asterisk.sql
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose asteriskcdrdb < /tmp/asteriskcdrdb.sql
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose endpointconfig < /tmp/endpointconfig.sql
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose meetme < /tmp/meetme.sql
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose roundcubedb < /tmp/roundcubedb.sql
+mysql --user=$MySqlUser --password=$MySqlPassword --verbose test < /tmp/test.sql
+echo "************************** End:   Restoring Backup... **************************"
+
+
+echo "*************************************************************************************************"
+echo "************************* End InnoDB Database Correction for Issabel 2020 ***********************"
+echo "*************************************************************************************************"
