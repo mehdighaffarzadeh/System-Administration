@@ -1,0 +1,12 @@
+restart service "WLAN AutoConfig" Service (WlanSvc)
+
+
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -command "Restart-Service WlanSvc -Force"
+
+
+Windows 10 ping spikes
+Windows 10 high ping WiFi
+High DCP latency Windows 10
+Random high ping windows 10
+
+https://hitech-us.com/articles/entry/292/Ping-spikes-on-Wi-Fi-every-10-seconds-Solved
