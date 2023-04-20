@@ -1,0 +1,16 @@
+User Configuration -> Policies -> Administrative Templates -> Windows Components -> Internet Explorer
+
+
+Computer Configuration -> Policies -> Administrative Templates -> Microsoft Edge
+
+---------------------------------
+
+Edge v44 (legacy Edge) is managed via
+Computer Configuration\Administrative Templates\Windows Components\Microsoft Edge\
+and
+User Configuration\Administrative Templates\Windows Components\Microsoft Edge\
+
+Edge Chromium (v77+) is managed via
+Computer Configuration\Administrative Templates\Microsoft Edge\
+and
+User Configuration\Administrative Templates\Microsoft Edge\

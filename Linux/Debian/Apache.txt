@@ -1,0 +1,5 @@
+var > www > html
+
+mv index.html _index.bak
+
+nano /var/www/html/index.html
