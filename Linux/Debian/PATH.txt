@@ -1,0 +1,20 @@
+
+Show:
+echo $PATH
+printenv PATH
+
+
+Add to PATH ""Temporarily"":
+export PATH="/Directory1:$PATH"
+
+
+Add to PATH ""Permanently"":
+for current user:
+add ( export PATH="/Directory1:$PATH" ) to end of file --> .bashrc (located in the /home/UserName/.bashrc) OR .profile (located in the /home/UserName/.profile)
+for all users: 
+add ( export PATH="/Directory1:$PATH" ) to end of file --> /etc/profile
+
+
+Remove:
+For ""Temporarily"": Exit terminal OR export PATH=${PATH/'/Directory1'/}
+For ""Permanently"": Edit Configuration Files

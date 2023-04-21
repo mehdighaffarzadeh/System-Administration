@@ -1,0 +1,17 @@
+debian 11:
+-----
+software > setting > update repositories > Other software > unckeck cd rom
+Or
+/etc/apt/source.list > comment > # cdrom ...
+-----
+debian SourcesList: 
+
+deb http://deb.debian.org/debian bullseye main
+deb-src http://deb.debian.org/debian bullseye main
+
+deb http://deb.debian.org/debian-security/ bullseye-security main
+deb-src http://deb.debian.org/debian-security/ bullseye-security main
+
+deb http://deb.debian.org/debian bullseye-updates main
+deb-src http://deb.debian.org/debian bullseye-updates main
+-----

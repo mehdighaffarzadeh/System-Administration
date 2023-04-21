@@ -1,0 +1,19 @@
+https://www.server-world.info/en/note?os=Debian_11&p=realmd
+-------------------------------
+export PATH="/usr/sbin:$PATH"
+
+apt update
+
+apt upgrade
+
+apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit 
+
+realm discover domainname.net
+
+realm join domainname.net
+
+id administrator@domainname.net
+
+/etc/sssd/sssd.conf --->> use_fully_qualified_names = False
+
+/etc/pam.d/common-session --->> add to end of file --->> session optional	pam_mkhomedir.so skel=/etc/skel umask=077
