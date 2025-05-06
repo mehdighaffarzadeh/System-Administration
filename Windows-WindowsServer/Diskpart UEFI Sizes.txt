@@ -1,0 +1,22 @@
+rem Usage: diskpart /s scriptname.txt
+rem Usage: diskpart /s scriptname.txt > logfile.txt
+rem DISKPART script for single OS disk 
+
+Windows Installation --> Shift+F10
+
+
+EFI (UEFI) system partition: 
+Windows 10/11 typically creates a 100 MB EFI partition. 
+Linux distributions recommend a size between 500 MB and 550 MB, especially for multi-boot setup.
+Larger: If you're planning to install many operating systems or have a large number of kernels, you might want to consider a larger EFI partition, possibly 1 GB or more. 
+
+Microsoft Reserved (MSR) partition: 
+Drives under 16GB: 32 MB
+Drives 16GB or larger: 128 MB
+Windows 10/11:   16 MB 
+Windows 7:       128 MB
+Windows 8 & 8.1: 128 MB
+
+
+Windows Recovery Environment (WinRE) partition:
+Should be at least 300 MB in size. However, a size of 500 MB to 1 GB is generally recommended.

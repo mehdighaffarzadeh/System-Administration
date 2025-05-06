@@ -1,0 +1,32 @@
+rem == Usage: diskpart /s scriptname.txt
+rem == Usage: diskpart /s scriptname.txt > logfile.txt
+rem == DISKPART script for single OS disk.
+rem == These commands are used with DiskPart to
+rem    create three "Primary" partitions
+rem    for a BIOS/MBR-based computer.
+rem    Adjust the partition sizes to fill the 
+rem    drive as necessary. ==
+rem
+rem == 1. Prepare Disk ==========================
+select disk 0
+clean
+convert mbr
+rem
+rem == 2. System partition ======================
+create partition primary size=100
+format quick fs=ntfs label="System"
+assign letter="S"
+active
+rem == 3. Recovery partition ====================
+create partition primary size=1024
+format quick fs=ntfs label="Recovery image"
+assign letter="R"
+set id=27
+rem
+rem == 4. Windows partition =====================
+create partition primary
+format quick fs=ntfs label="Windows"
+assign letter="W"
+rem
+list volume
+exit

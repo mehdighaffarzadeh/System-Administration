@@ -1,0 +1,40 @@
+rem == Usage: diskpart /s scriptname.txt
+rem == Usage: diskpart /s scriptname.txt > logfile.txt
+rem == DISKPART script for single OS disk.
+rem == These commands are used with DiskPart to
+rem    create four partitions
+rem    for a UEFI/GPT-based PC.
+rem    Partitions orders:
+rem      efi , msr , recovery , win.
+rem    Adjust the partition sizes to fill the drive
+rem    as necessary. ==
+rem
+rem == 1. Prepare Disk =============================
+select disk 0
+clean
+convert gpt
+rem
+rem == 2. EFI System partition =====================
+create partition efi size=100
+rem    NOTE: For Advanced Format 4Kn drives,
+rem       change this value to size = 260 ** 
+format quick fs=fat32 label="System"
+assign letter="S"
+rem
+rem == 3. Microsoft Reserved (MSR) partition =======
+create partition msr size=16
+rem
+rem == 4. Recovery partition =======================
+create partition primary size=1024
+format quick fs=ntfs label="Recovery"
+assign letter="R"
+set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"
+gpt attributes=0x8000000000000001
+rem
+rem == 5. Windows partition ========================
+create partition primary
+format quick fs=ntfs label="Windows"
+assign letter="W"
+rem
+list volume
+exit
