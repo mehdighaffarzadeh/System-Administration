@@ -1,0 +1,12 @@
+https://www.microsoft.com/en-us/software-download/windows10
+https://www.microsoft.com/en-us/software-download/windows11
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-11-enterprise
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022
+https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025
+
+------------------------------
+How to download:
+https://www.tenforums.com/tutorials/9230-download-windows-10-iso-file.html
